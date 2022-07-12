@@ -1,0 +1,25 @@
+<%- include("./partials/head.ejs") %>
+<%- include("./partials/header.ejs") %>
+
+<div class="wrapper-show">
+    <a class="button back" href="/products">Go Back</a>
+    <div class="flex-parent">
+        <img src="<%= foundProduct.img %>" class="img-size img-border alt="<%= foundProduct.name %>">
+        <h1><%= foundProduct.artist %></h1>
+        <div class="box">
+            <a class="button" href="/products/<%= foundProduct._id %>/edit">Edit Product</a>
+            <p><%= foundProduct.description %></p>
+            <p>$ <%= foundProduct.price %></p>
+            <p>QTY: <%= foundProduct.qty %></p>
+            <!-- <button class="button">Add To Cart</button> -->
+            <form action="/products/<%= foundProduct._id %>/buy" method="POST">
+                <input <%= foundProduct.qty ? '' : 'disabled' %> class="button" type="submit" value="<%= foundProduct.qty ? 'Buy' : 'Out of Stock' %>" >
+            </form>
+            <form action="/products/<%= foundProduct._id %>?_method=DELETE" method="POST">
+                <input class="button" type="submit" value="DELETE">
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("./partials/footer.ejs") %>

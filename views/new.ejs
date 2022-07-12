@@ -1,0 +1,26 @@
+<%- include("./partials/head.ejs") %>
+<%- include("./partials/header.ejs") %>
+
+<div class="wrapper-edit">
+    <a class="button back" href="/products">Go Back</a>
+    <div class="flex-parent">
+        <form action="/products" method="POST" class="box">
+            <h1>Create New Product</h1>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Me Against the World">
+            <label for="artist">Artist:</label>
+            <input type="text" name="artist" id="artist" placeholder="Tupac">
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <label for="price">Price:</label>
+            <input type="number" name="price" id="price" placeholder="$100">
+            <label for="qty">QTY:</label>
+            <input type="number" name="qty" id="qty" placeholder="5">
+            <label for="img">Image:</label>
+            <input type="text" name="img" id="img">
+            <input class="button" type="submit" value="Create">
+        </form>
+    </div>
+</div>
+
+<%- include("./partials/footer.ejs") %>
